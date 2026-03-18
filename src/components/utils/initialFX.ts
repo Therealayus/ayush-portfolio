@@ -1,10 +1,9 @@
-import { SplitText } from "gsap-trial/SplitText";
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
+  if (smoother?.paused) smoother.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
   gsap.to("body", {
     backgroundColor: "#0a0e17",
@@ -12,75 +11,140 @@ export function initialFX() {
     delay: 1,
   });
 
-  var landingText = new SplitText(
-    [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
-    {
-      type: "chars,lines",
-      linesClass: "split-line",
-    }
-  );
-  gsap.fromTo(
-    landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
-    {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
-      delay: 0.3,
-    }
-  );
+  // gsap-trial plugins are only safe to load on localhost.
+  const isLocalhost =
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1");
 
-  let TextProps = { type: "chars,lines", linesClass: "split-h2" };
+  if (isLocalhost) {
+    void import("gsap-trial/SplitText").then(({ SplitText }) => {
+      var landingText = new SplitText(
+        [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
+        {
+          type: "chars,lines",
+          linesClass: "split-line",
+        }
+      );
+      gsap.fromTo(
+        landingText.chars,
+        { opacity: 0, y: 80, filter: "blur(5px)" },
+        {
+          opacity: 1,
+          duration: 1.2,
+          filter: "blur(0px)",
+          ease: "power3.inOut",
+          y: 0,
+          stagger: 0.025,
+          delay: 0.3,
+        }
+      );
 
-  var landingText2 = new SplitText(".landing-h2-info", TextProps);
-  gsap.fromTo(
-    landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
-    {
-      opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      stagger: 0.025,
-      delay: 0.3,
-    }
-  );
+      let TextProps = { type: "chars,lines", linesClass: "split-h2" };
 
-  gsap.fromTo(
-    ".landing-info-h2",
-    { opacity: 0, y: 30 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
-      y: 0,
-      delay: 0.8,
-    }
-  );
-  gsap.fromTo(
-    [".header", ".icons-section", ".nav-fade"],
-    { opacity: 0 },
-    {
-      opacity: 1,
-      duration: 1.2,
-      ease: "power1.inOut",
-      delay: 0.1,
-    }
-  );
+      var landingText2 = new SplitText(".landing-h2-info", TextProps);
+      gsap.fromTo(
+        landingText2.chars,
+        { opacity: 0, y: 80, filter: "blur(5px)" },
+        {
+          opacity: 1,
+          duration: 1.2,
+          filter: "blur(0px)",
+          ease: "power3.inOut",
+          y: 0,
+          stagger: 0.025,
+          delay: 0.3,
+        }
+      );
 
-  var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
-  var landingText4 = new SplitText(".landing-h2-1", TextProps);
-  var landingText5 = new SplitText(".landing-h2-2", TextProps);
+      gsap.fromTo(
+        ".landing-info-h2",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power1.inOut",
+          y: 0,
+          delay: 0.8,
+        }
+      );
 
-  LoopText(landingText2, landingText3);
-  LoopText(landingText4, landingText5);
+      gsap.fromTo(
+        [".header", ".icons-section", ".nav-fade"],
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power1.inOut",
+          delay: 0.1,
+        }
+      );
+
+      var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
+      var landingText4 = new SplitText(".landing-h2-1", TextProps);
+      var landingText5 = new SplitText(".landing-h2-2", TextProps);
+
+      LoopText(landingText2, landingText3);
+      LoopText(landingText4, landingText5);
+    });
+  }
+  else {
+    // Safe fallback for production: animate the same hero elements
+    // without loading gsap-trial's SplitText.
+    gsap.fromTo(
+      [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
+      { opacity: 0, y: 80, filter: "blur(5px)" },
+      {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 1.2,
+        ease: "power3.inOut",
+        stagger: 0.07,
+        delay: 0.3,
+      }
+    );
+
+    gsap.fromTo(
+      ".landing-h2-info",
+      { opacity: 0, y: 80, filter: "blur(5px)" },
+      {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 1.2,
+        ease: "power3.inOut",
+        delay: 0.3,
+      }
+    );
+
+    gsap.fromTo(
+      ".landing-info-h2",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power1.inOut",
+        delay: 0.8,
+      }
+    );
+
+    gsap.fromTo(
+      [".header", ".icons-section", ".nav-fade"],
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1.2,
+        ease: "power1.inOut",
+        delay: 0.1,
+      }
+    );
+  }
+
 }
 
-function LoopText(Text1: SplitText, Text2: SplitText) {
+function LoopText(Text1: any, Text2: any) {
   var tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
   const delay = 4;
   const delay2 = delay * 2 + 1;
