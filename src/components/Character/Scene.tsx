@@ -57,7 +57,6 @@ const Scene = () => {
   const isHandlingChatRef = useRef(false);
   const lastTranscriptRef = useRef<string>("");
   const hasUserGestureRef = useRef(false);
-  const interimBufferRef = useRef<string>("");
   const silenceTimerRef = useRef<number | undefined>(undefined);
   const restartTimerRef = useRef<number | undefined>(undefined);
   const recognitionActiveRef = useRef(false);

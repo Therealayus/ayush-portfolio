@@ -38,7 +38,14 @@ Return ONLY plain text (no JSON, no markdown, no backticks).`;
         const chunks: string[] = [];
         return await new Promise<any>((resolve, reject) => {
           req.on("data", (chunk: any) => {
-            chunks.push(Buffer.isBuffer(chunk) ? chunk.toString("utf8") : String(chunk));
+            // Avoid referencing the Node `Buffer` type (tsc might not include @types/node).
+            const textChunk =
+              typeof chunk === "string"
+                ? chunk
+                : typeof chunk?.toString === "function"
+                  ? chunk.toString("utf8")
+                  : String(chunk);
+            chunks.push(textChunk);
           });
           req.on("end", () => {
             try {
