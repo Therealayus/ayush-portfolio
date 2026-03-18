@@ -88,19 +88,25 @@ const WhatIDo = () => {
 
             <div className="what-content-in">
               <h3>FRONTEND</h3>
-              <h4>Building Interactive UIs</h4>
+              <h4>Building Pixel-Perfect UIs</h4>
               <p>
-                Crafting performant, responsive interfaces with modern frameworks.
-                From SPAs to micro-frontends, I deliver pixel-perfect experiences.
+                Crafting performant, responsive interfaces using React.js, Next.js,
+                and TypeScript. I build intuitive UIs with clean component
+                architecture, smooth state management, and optimized render cycles.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">React.js</div>
-                <div className="what-tags">Angular</div>
                 <div className="what-tags">Next.js</div>
                 <div className="what-tags">TypeScript</div>
-                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Tailwind CSS</div>
+                <div className="what-tags">Redux Toolkit</div>
+                <div className="what-tags">React Query</div>
+                <div className="what-tags">Context API</div>
                 <div className="what-tags">Material UI</div>
+                <div className="what-tags">Bootstrap</div>
+                <div className="what-tags">Framer Motion</div>
+                <div className="what-tags">Zustand (Basics)</div>
                 <div className="what-tags">HTML5</div>
                 <div className="what-tags">CSS3</div>
               </div>
@@ -127,21 +133,27 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
             <div className="what-content-in">
               <h3>BACKEND</h3>
-              <h4>Scalable Server Architecture</h4>
+              <h4>Secure & Scalable APIs</h4>
               <p>
-                Designing robust APIs and microservices. From CMS platforms to
-                complex business logic, I build backends that scale.
+                Designing secure RESTful APIs and building scalable backend services
+                with Node.js and Express. I integrate databases, real-time sockets,
+                and robust auth/validation to support production workloads.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Node.js</div>
-                <div className="what-tags">NestJS</div>
                 <div className="what-tags">Express.js</div>
                 <div className="what-tags">MongoDB</div>
-                <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">PostgreSQL (Basics)</div>
+                <div className="what-tags">Drizzle ORM</div>
+                <div className="what-tags">Socket.IO</div>
                 <div className="what-tags">REST APIs</div>
-                <div className="what-tags">Microservices</div>
-                <div className="what-tags">Python</div>
+                <div className="what-tags">JWT Auth</div>
+                <div className="what-tags">OAuth</div>
+                <div className="what-tags">Firebase FCM</div>
+                <div className="what-tags">Realtime</div>
+                <div className="what-tags">PM2</div>
+                <div className="what-tags">Cron Jobs</div>
               </div>
               <div className="what-arrow"></div>
             </div>

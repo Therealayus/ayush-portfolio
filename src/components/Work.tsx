@@ -5,34 +5,45 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "NifiPayments Developer Documents",
+    category: "Developer Documentation Portal",
+    tools:
+      "React.js, Tailwind CSS, API Integration, API Playground, Encrypted request/response flows",
+    image: "/images/nifipayments-logo.svg",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "NifiPayments Dashboard",
+    category: "Merchant Dashboard",
+    tools:
+      "React.js, Tailwind CSS, REST APIs, Authentication, KYC/Compliance flows, State management & caching",
+    image: "/images/nifipayments-logo.svg",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
+    title: "NifiPayments Payment Gateway",
+    category: "Payment Gateway",
+    tools:
+      "React.js, REST APIs, Encrypted checkout payloads, Status callbacks, Redirect-based payment flows",
+    image: "/images/nifipayments-logo.svg",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
+    title: "Metaware Solutions Dashboard",
+    category: "Internal Analytics & Reporting",
+    tools: "Next.js, Bootstrap, Material UI, Optimized rendering & API integration",
     image: "/images/sapphire.png",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
+    title: "PetZaade Style - Pet Grooming App",
+    category: "Pet Grooming Platform",
+    tools:
+      "Node.js, Firebase FCM, REST APIs, Booking & scheduling modules, Notification flows",
+    image: "/images/Solidx.png",
+  },
+  {
+    title: "Match Flick – Dating App",
+    category: "Real-time Dating Backend",
+    tools:
+      "Node.js, Sockets (real-time chat), Firebase FCM, Swipe/matching logic, Message delivery status",
+    image: "/images/radix.png",
   },
 ];
 
